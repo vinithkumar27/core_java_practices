@@ -1,29 +1,53 @@
-import java.util.Scanner;
+package practices;
+//Atm deposit simple ...
 class one
-    {
-        public void trone()
-               {
-                     Scanner in = new Scanner(System.in);
-                     System.out.println("Enter the input value to reverse");
-                     int n = in.nextInt();
-                     int a,b,c,d;
-                     a=n/1000;
-                     n=n%1000;
-                     b=n/100;
-                     n=n%100;
-                     c=n/10;
-                     n=n%10;
-                     d=n;
-                        System.out.println(d+""+c+""+b+""+a);
-               }
-   }
-
-
-class first
-    {
-         public static void main(String[] args)
-                  {
-                        one obj1 = new one();
-                        obj1.trone();
-                  }
-    }
+{
+  int accno;
+  String name;
+  float amount;
+  public void insert(int accno,String name,float amount)
+  {
+	this.accno=accno;
+	this.name=name;
+	this.amount=amount;
+  }
+  public void display()
+  {
+	  System.out.println("The account details are .."+accno+"/ "+name+"/ "+amount);
+  }
+  public void checkbalance()
+  {
+	  System.out.println("balance is "+amount);
+  }
+  public void deposit(float amt)
+  {
+	amount+=amt;  
+	System.out.println("your amount "+amt+" is deposited");
+  }
+  public void withdraw(float amt)
+  {
+	  if(amount<amt)
+	  {
+		System.out.println("Insufficient Balance");  
+	  }
+	  else
+	  {
+		  amount=amount-amt;
+		  System.out.println("your amount "+amt+" withdrawn");
+	  }
+  }
+}
+public class first
+{
+	public static void main(String[] args) 
+	{
+       one obj = new one();
+       obj.insert(13212,"vinith",24000);
+       obj.display();
+       obj.checkbalance();
+       obj.deposit(1000);
+       obj.checkbalance();
+       obj.withdraw(2500);
+       obj.checkbalance();
+	}
+}
